@@ -59,22 +59,19 @@ public class ContactusSteps {
 
 	@When("^I enter a valid email address$")
 	public void i_enter_a_valid_email_address() throws Throwable {
-		driver.findElement(By.cssSelector("input[name='email']")).sendKeys("webdriveruniversity.com");
+		driver.findElement(By.cssSelector("input[name='email']")).sendKeys("webdriveruniversity@hotmail.com");
 	}
 
 	@When("^I enter comments$")
-	public void i_enter_comments(DataTable arg1) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    // For automatic transformation, change DataTable to one of
-	    // List<YourType>, List<List<E>>, List<Map<K,V>> or Map<K,V>.
-	    // E,K,V must be a scalar (String, Integer, Date, enum etc)
-	    throw new PendingException();
+	public void i_enter_comments(DataTable dataTable) throws Throwable {
+		List<List<String>> data = dataTable.raw(); 
+		driver.findElement(By.xpath("//textarea[@placeholder='Comments']")).sendKeys(data.get(0).get(0));
+		driver.findElement(By.xpath("//textarea[@placeholder='Comments']")).sendKeys(data.get(0).get(1));
 	}
 
 	@When("^I click on the submit button$")
 	public void i_click_on_the_submit_button() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		driver.findElement(By.cssSelector("input[value='SUBMIT']")).click();
 	}
 
 	@Then("^the information will successfully be submitted via the contact us form$")
