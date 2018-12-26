@@ -7,8 +7,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import org.junit.Assert;
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.After;
@@ -76,8 +77,12 @@ public class ContactusSteps {
 
 	@Then("^the information will successfully be submitted via the contact us form$")
 	public void the_information_will_successfully_be_submitted_via_the_contact_us_form() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		WebElement thanksContactPage = driver.findElement(By.xpath("//div[@id='contact_reply']"));		
+		Thread.sleep(3000);
+		//value after replace all is a regex value, removes spaces or digits with "" - no space
+		Assert.assertEquals("thankyouforyourmessage!", thanksContactPage.getText().toLowerCase()
+				.replaceAll("[ ()0-9]", ""));
+		System.out.println(thanksContactPage);
 	}
 	
 
