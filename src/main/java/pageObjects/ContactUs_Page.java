@@ -1,9 +1,12 @@
 package pageObjects;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import cucumber.api.DataTable;
 
 public class ContactUs_Page extends BasePage {
 	public @FindBy(xpath = "//input[@name='first_name']") WebElement textField_FirstName;
@@ -14,7 +17,38 @@ public class ContactUs_Page extends BasePage {
 
 	public ContactUs_Page() throws IOException {
 		super();
-
+	}
+	
+	public ContactUs_Page getContactUsPage() throws IOException {
+		getDriver().get("http://www.webdriveruniversity.com/Contact-Us/contactus.html");
+		return new ContactUs_Page();		
+	}
+	
+	public ContactUs_Page enterFirstName() throws Exception {
+		sendKeysToWebElement(textField_FirstName, "Paul");
+		return new ContactUs_Page();		
+	}
+	
+	public ContactUs_Page enterLastname(DataTable dataTable, int row, int column) throws Exception {
+		List<List<String>> data = dataTable.raw();
+		sendKeysToWebElement(textField_LastName, data.get(row).get(column));
+		return new ContactUs_Page();		
+	}
+	
+	public ContactUs_Page enterEmailAddress(String email) throws Exception {
+		sendKeysToWebElement(textField_EmailAddress, email);
+		return new ContactUs_Page();		
+	}
+	
+	public ContactUs_Page enterMessage(DataTable dataTable, int row, int column) throws Exception {
+		List<List<String>> data = dataTable.raw();
+		sendKeysToWebElement(textField_Message, data.get(row).get(column));
+		return new ContactUs_Page();		
+	}
+	
+	public ContactUs_Page clickOnSubmitButton() throws Exception {
+		waitAndClickElement(button_Submit);
+		return new ContactUs_Page();
 	}
 
 }
