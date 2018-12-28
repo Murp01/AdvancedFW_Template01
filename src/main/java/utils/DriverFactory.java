@@ -14,10 +14,10 @@ public class DriverFactory {
 	public WebDriver getDriver() {
 
 		try {
-/*			ReadConfigFile file = new ReadConfigFile();
-			String browserName = file.getBrowser();*/
+			ReadConfigFile file = new ReadConfigFile();
+			String browserName = file.getBrowser();
 			
-			String browserName = "chrome";
+/*			String browserName = "chrome";*/
 
 			switch (browserName) {
 
