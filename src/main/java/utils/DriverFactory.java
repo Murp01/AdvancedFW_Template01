@@ -1,8 +1,6 @@
 package utils;
 
-import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -16,8 +14,10 @@ public class DriverFactory {
 	public WebDriver getDriver() {
 
 		try {
-			ReadConfigFile file = new ReadConfigFile();
-			String browserName = file.getBrowser();
+/*			ReadConfigFile file = new ReadConfigFile();
+			String browserName = file.getBrowser();*/
+			
+			String browserName = "chrome";
 
 			switch (browserName) {
 
