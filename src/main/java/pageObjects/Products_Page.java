@@ -16,6 +16,17 @@ public class Products_Page extends BasePage{
 		super();
 
 	}
+	
+	public Products_Page clickOnProceedButton_PopUp() throws InterruptedException, IOException{
+		waitAndClickElement(button_Proceed_Popup);
+		return new Products_Page();
+	}
+	
+	public String printSpecialOfferVoucherCode(){
+		WaitUntilWebElementIsVisible(voucherNumber);
+		String voucherCode = voucherNumber.getText();
+		System.out.println("Voucher Code: " + voucherCode);
+		return voucherCode;
+	}
 
 }
-//div[@class='modal-body']//b[contains(text(), 'NEWCUSTOMER')]
