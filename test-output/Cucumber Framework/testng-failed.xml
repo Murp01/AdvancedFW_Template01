@@ -6,4 +6,15 @@
       <class name="runners.MainRunner"/>
     </classes>
   </test> <!-- Cucumber Tests -->
+  <test name="Cucumber Tests(failed)" parallel="classes">
+    <classes>
+      <class name="runners.MainRunner">
+        <methods>
+          <include name="setUpClass"/>
+          <include name="feature" invocation-numbers="0"/>
+          <include name="tearDownClass"/>
+        </methods>
+      </class> <!-- runners.MainRunner -->
+    </classes>
+  </test> <!-- Cucumber Tests(failed) -->
 </suite> <!-- Failed suite [Cucumber Framework] -->
