@@ -1,5 +1,7 @@
 package utils;
 
+import java.io.FileInputStream;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,10 +24,12 @@ public class DriverFactory {
 	public WebDriver getDriver() {
 
 		try {
-			ReadConfigFile file = new ReadConfigFile();
-			String browserName = file.getBrowser();
-			
-/*			String browserName = "chrome";*/
+			Properties p = new Properties();
+			FileInputStream fi = new FileInputStream(System.getProperty("user.dir") + 
+					"\\src\\main\\java\\properties\\config.properties");
+			p.load(fi);
+			String browserName = p.getProperty("browser");
+
 
 			switch (browserName) {
 
