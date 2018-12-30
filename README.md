@@ -1,10 +1,10 @@
 # AdvancedFW_Template01
 There are 2 main branches in this repository. 
 
-## MASTER branch ##
+### MASTER branch ###
 The "Master" branch contains a template that can be used to start a new project.  There is currently demo code for running tests on the BBC website.  This code is to be deleted when starting a new project and replaced with code related to the AUT.
 
-## Advanced Framework ##
+### Advanced Framework ###
 The "Advanced Framework" branch contains an example of a project using the "WebUniversity.com".  This Framework was developed through a Udemy course which I would highly recommend for learning about the ins and the outs of the framework (see link below).  
 
 https://www.udemy.com/cucumber-bdd-selenium-java-complete-automation-course/learn/v4/content
